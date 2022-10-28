@@ -1,0 +1,86 @@
+Pseudocode for Multi-Depth Module
+
+# HAND—HAND grid, recording HAND values of each pixel in a study area.
+# drainageMx—drainage Matrix, recording how many upstream pixels each pixel drains, same dimension with the HAND grid. Generated along with the HAND grid. 
+# flowMx—flow direction Matrix, recording the D8 flow direction of each pixel, same dimension with the HAND grid. Generated along with the HAND grid.
+# pointList—a list of position or index of all pixels in a study area, same dimension with the HAND grid. Encoded before all computation starts.
+# locationList—a nested list of locations where the custom depth values to be applied, each element of the list is the X, Y coordinates or row & column index of the locations. This has to be provided. 
+# depthList—a list of water depths assigned to locations in locationList, same length with locationList Has to be provided
+# areaList—a list of area drained by each pixel in the location List, same length with locationList. Can be obtained from existing datasets, such as NHDPlus, measurements on a real map or a digital map such as DEM, or be derived using flowMx. 
+# streamList— a list of stream length each pixel controls in the location List, same length with locationList. Can be obtained from existing datasets, such as NHDPlus, or measurements on a real map or a digital map such as DEM.
+# depth—a depth value that will control all pixels that are not drained by any custom drainage point in locationList. Has to be provided. 
+
+Procedure dye(drainageMx, flowMx, locationList, pointList):
+	# initial a new matrix filled with zero to record which upstream pixel 
+# will be drained by which drainage pixel
+colorMx = zeros(size=HAND.size)    
+
+# get drainage area for all locations in locationList
+drainageList = getDrainArea(drainageMX, locationList)
+	for all location in locationList do
+		upstreamPoints = getUpstreamPoints(flowMx, location, pointList)
+  		for all point in upstreamPoints do
+			if colorMx[point] == 0 or colorMx[point] > drainageList[location] do
+				# Update the color of current point if it has not been changed before
+				# or it is controlled by a more downstream point
+				colorMx[point] = drainageList[location]
+	return colorMx, drainageList
+
+Procedure multiDepth(pointList, HAND, depthList, depth, mode):
+# Initial a new matrix filled with zero to record the final depth of each pixel 
+depthMx = zeros(size=HAND.size)    
+# Initial a new matrix filled with zero to record the inundation condition of each pixel 
+# where 0 is dry and 1 is flooded
+floodMx = zeros(size=HAND.size)    
+
+colorMx, drainageList = dye(drainageMx, flowMx, locationList, pointList)
+
+	# Compute inundation extent using DA
+	if mode == ‘Da’ do
+		depth_DA = weightedAvg(depthList, areaList)
+		for all point in pointList do
+if colorMX[point] != 0 do
+				if depth_DA > HAND[point] do
+					floodMx[point] = 1
+			else if depth > HAND[point] do
+floodMx[point] = 1
+
+	# Compute inundation extent using DL
+elif mode == ‘Dl’ do
+		depth_DL = weightedAvg(depthList, streamList)
+		for all point in pointList do
+if colorMX[point] != 0 do
+				if depth_DL > HAND[point] do
+					floodMx[point] = 1
+			else if depth > HAND[point] do
+floodMx[point] = 1
+
+	# Compute inundation extent using DLocal
+else do
+		for all point in pointList do
+			# Update the inundation conditions for pixels controlled/not controlled by custom 
+			# locations in locationList seperately
+			if colorMX[point] != 0 do
+				depthMx[point] = depthList[index of colorMx[point] in deinageList]
+				if depthMx[point] > HAND[point] do
+					floodMx[point] = 1
+			else if depth > HAND[point] do
+				floodMx[point] = 1
+	return floodMx
+
+Procedure getDrainArea(drainageMx, locationList):
+	drainList = empty list with the same dimension with locationList
+	for all location in locationList do
+		append drainageMx[location] to drainList 
+	return drainList
+
+Procedure getUpstreamPoints(flowMx, location, pointList):
+	# Recursively find all upstream points of the given location based on flowMx 
+# and put those points in a variable upstreamPoints
+	return upstreamPoints
+
+Procedure weightedAvg(depthList, weights):
+	avg = 0
+	for every item in depthList do
+		avg += depthList[item]*weights[item]
+	return avg /= sum(weights)
