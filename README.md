@@ -6,7 +6,7 @@ The three multi-depth functions are Da (taking the average of a list of depths g
 
 ## Example
 The controlled upstream areas and stream lengths are computed based on D8 flow directions in the example we provided. These can also be obtained directly from field measurements or measurements from maps. If the area and stream length arrays are provided, the computed two arrays will be overwritten. It is worth noting that the stream flow values used in the example are fake numbers just for demonstration purposes and do not correspond to a real-world scenario. 
-![image](https://user-images.githubusercontent.com/49577873/198298340-99e950c0-9f05-4594-87a8-2c07fb7d806c.png)
+![image](https://user-images.githubusercontent.com/49577873/198705473-286e9bae-9db1-4f90-81c3-ab82c2096eeb.png)
 
 
 ## Explanation
