@@ -1,0 +1,134 @@
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: "Gill Sans MT","Lucida Grande","Lucida Sans","trebuchet ms",cambria;
+	overflow: auto;
+}
+
+
+#uihilab {
+  width: 19%;
+  z-index: 2;
+  text-align: right;
+  float: left;
+  border: 0px solid black;
+  padding-top: 10px;
+  height: 90px;
+}
+
+#uihilab img {
+  width: 100px; 
+}
+
+#title {
+  border: 0px solid black;
+  float: right;
+  font-size: 3.5vw;
+  color: #004;
+  width: 79%;
+  padding-top: 25px;
+  height: 75px;
+  text-align: left;
+  font-weight: 700;
+  float: top;
+}
+
+#box1 {
+  width: 50%;
+  padding-top: 20px;
+  height: auto;
+  position: relative;
+  float: left;
+}
+
+#box2 {
+  width: 50%;
+  padding-top: 20px;
+  height: auto;
+  position: relative;
+  float: right;
+}
+
+#innerText1 {
+  padding: 4px;
+  position: absolute;
+  width: auto;
+  top:65px;
+  right:10%;
+  font-size: 15px;
+  background-color: white;
+  border: 1px solid black;
+  z-index: 2;
+}
+
+#innerText2 {
+  padding: 4px;
+  position: absolute;
+  width: auto;
+  top:65px;
+  right:10%;
+  font-size: 15px;
+  background-color: white;
+  border: 1px solid black;
+  visibility: hidden;
+  z-index: 2;
+}
+
+#depthLabel {
+  width: auto;
+}
+
+
+#map1 {
+  height: 550px;
+  width: 90%;
+  margin: auto;
+  border: 1.5px solid black;
+}
+
+#mapbtn1 {
+  width:100%;
+  padding-top: 20px;
+  text-align: center;
+}
+
+#mapbtn2 {
+  width:100%;
+  padding-top: 20px;
+  text-align: center;
+}
+
+#map2 {
+  height: 550px;
+  width: 90%;
+  margin: auto;
+  border: 1.5px solid black;
+}
+
+#gaugeNote { 
+  width: auto;
+  padding: 4px;
+  font-size:15px;
+  position: absolute;
+  bottom: 100px;
+  left: 20%;
+  visibility: hidden;
+  border: 1px solid black;
+  background-color: #fff;
+  z-index: 2
+}
+
+
+.sB {
+  width: 20px;
+  margin-right: 1px;
+  padding-left: 3px;
+}
+
+
+.sbtn {
+  font-size: 15px;
+  
+}

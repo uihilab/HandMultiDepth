@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="f.js"></script>	
+</head>
+<body onload="init()">
+
+<div id="uihilab" title="UI Hydroinformatics Lab"><a href="https://hydroinformatics.uiowa.edu/" target="_blank"><img src="img/uihilab.png"></a></div>
+
+<div id='title'>HAND Multi-Depth Module Demonstration</div>
+
+<div id = 'box1'>
+	<div id = "gaugeNote" class = "inputbox">
+	<span >Water Depth</span>
+	<span id="userDepth" style="margin-right: 4px;"></span><button class="sB" onclick="toggle_box()">X</button>
+	</div>
+	<div id='innerText1'><span id = "drarea1"></span></div>
+	<div id="map1"></div>
+	<div id="mapbtn1"><button onclick="flood_mapping('Ds')" class="sbtn">Create Map with A Global Depth Value (Ds)</button></div>
+</div>
+
+<div id = 'box2'>
+	<div id='innerText2'><span id="depthLabel"></span></div>
+	<div id="map2"></div>
+	<div id="mapbtn2">
+		<select id="depth" class="sbtn">
+			<option value="Da">- Depth Weighted by Area (Da)</option>
+			<option value="Dl" selected>- Depth Weighted by Stream Length (Dl)</option>
+			<option value="Dlocal">- Depth without Averaging (Dlocal)</option>
+		</select>
+		<button onclick="flood_mapping()" class="sbtn">Create Map with Custom Depth</button>
+	</div>
+</div>
+
+
+<script 
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5Lz7efVijEPENVUhJBIPY_718UehmL_U&libraries=geometry&language=en"
+defer>
+</script>
+
+</body>
+</html>
