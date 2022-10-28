@@ -1,8 +1,8 @@
-# WBH Multi-Depth Component
+# HAND Multi-Depth Component
 ## Introduction
-This repository contains the multi-depth component of Web-Based HAND (WBH) and is designed as a platform-independent component. The module first computes the water depth matrix for every single pixel on the map. Then, by comparing the water depth assigned to each pixel and its HAND value, the inundation status of any pixel is determined--inundated if the depth is greater than the HAND, and dry otherwise. 
+This repository contains the multi-depth component of HAND and is designed as a platform-independent component. The module first computes the water depth matrix for every single pixel on the map. Then, by comparing the water depth assigned to each pixel and its HAND value, the inundation status of any pixel is determined--inundated if the depth is greater than the HAND, and dry otherwise. 
 
-The three multi-depth functions are Da (taking the average of a list of depths given at certain locations weighted by the upstream areas the pixel at each location drains), Dw (taking the average of a list of depths given at certain locations weighted by the upstream lengths the pixel at each location controls), and Dl (apply the depths directly to corresponding upstream pixels without taking the average). 
+The three multi-depth functions are Da (taking the average of a list of depths given at certain locations weighted by the upstream areas the pixel at each location drains), Dl (taking the average of a list of depths given at certain locations weighted by the upstream lengths the pixel at each location controls), and Dlocal (apply the depths directly to corresponding upstream pixels without taking the average). 
 
 ## Example
 The controlled upstream areas and stream lengths are computed based on D8 flow directions in the example we provided. These can also be obtained directly from field measurements or measurements from maps. If the area and stream length arrays are provided, the computed two arrays will be overwritten. It is worth noting that the stream flow values used in the example are fake numbers just for demonstration purposes and do not correspond to a real-world scenario. 
