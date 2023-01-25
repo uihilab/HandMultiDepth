@@ -15,7 +15,7 @@ Functions and helpful code comments are all included in f.js file. The files fol
 ## Acknowledgements & Citation
 This project is developed by the University of Iowa Hydroinformatics Lab (UIHI Lab): https://hydroinformatics.uiowa.edu/ 
 
-**Li, Z., Duque, F.Q., Grout, T., Bates, B. and Demir, I., 2022. Comparative Analysis of Performance and Mechanisms of Flood Inundation Map Generation using Height Above Nearest Drainage. https://doi.org/10.31223/X59K9G**
+**Li, Z., Duque, F.Q., Grout, T., Bates, B. and Demir, I., 2022. Comparative Analysis of Performance and Mechanisms of Flood Inundation Map Generation using Height Above Nearest Drainage. https://doi.org/10.1016/j.envsoft.2022.105565**
 
 ## Contact
 Please feel free to reach out to the authors (<ins>zhouyayan-li@uiowa.edu</ins>) if you have any questions.
